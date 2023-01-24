@@ -55,18 +55,20 @@ const slideInContent = [
 const animatedContents = [
   ...generalAnimatedElements,
   ...discoverSectionElements,
-  ...slideInContent
-]
+  ...slideInContent,
+];
 
-const intersectionObserver = new IntersectionObserver(handleIntersect, {rootMargin: "-10%"})
+const intersectionObserver = new IntersectionObserver(handleIntersect, {
+  rootMargin: "-10%",
+});
 
-animatedContents.forEach(el => intersectionObserver.observe(el))
+animatedContents.forEach((el) => intersectionObserver.observe(el));
 
 function handleIntersect(entries) {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
       entry.target.classList.add("active");
-      intersectionObserver.unobserve(entry.target)
+      intersectionObserver.unobserve(entry.target);
     }
-  })
+  });
 }
